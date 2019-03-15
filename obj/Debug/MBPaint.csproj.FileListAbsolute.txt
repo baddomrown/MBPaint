@@ -1,0 +1,10 @@
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\bin\Debug\MBPaint.exe.config
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\bin\Debug\MBPaint.exe
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\bin\Debug\MBPaint.pdb
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.csprojAssemblyReference.cache
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.Properties.Resources.resources
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.csproj.GenerateResource.cache
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.csproj.CoreCompileInputs.cache
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.exe
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.pdb
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.Main.resources
