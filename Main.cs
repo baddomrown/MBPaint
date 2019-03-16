@@ -38,6 +38,7 @@ namespace MBPaint
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 pColourMain.BackColor = colorDialog1.Color;
+                pen.Color = pColourMain.BackColor;
             }
         }
 
@@ -82,11 +83,183 @@ namespace MBPaint
         private void pColourMain_MouseDown(object sender, MouseEventArgs e)
         {
             pen.Color = pColourMain.BackColor;
+            pColourMain.BringToFront();
         }
 
         private void clearPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pCanvas.BackColor = Color.White;
+        }
+
+        private void pCanvas_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pColour1_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour1.BackColor;
+        }
+
+        private void pColour3_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour3.BackColor;
+        }
+
+        private void pColour4_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour4.BackColor;
+        }
+
+        private void pColour5_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour5.BackColor;
+        }
+
+        private void pColour6_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour6.BackColor;
+        }
+
+        private void pColour7_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour7.BackColor;
+        }
+
+        private void pColour9_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour9.BackColor;
+        }
+
+        private void pColour11_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour11.BackColor;
+        }
+
+        private void pColour13_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour13.BackColor;
+        }
+
+        private void pColour15_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour15.BackColor;
+        }
+
+        private void pColour17_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour17.BackColor;
+        }
+
+        private void pColour19_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour19.BackColor;
+        }
+
+        private void pColour21_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour21.BackColor;
+        }
+
+        private void pColour23_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour23.BackColor;
+        }
+
+        private void pColour25_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour25.BackColor;
+        }
+
+        private void pColour27_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour27.BackColor;
+        }
+
+        private void pColour8_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour8.BackColor;
+        }
+
+        private void pColour10_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour10.BackColor;
+        }
+
+        private void pColour12_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour12.BackColor;
+        }
+
+        private void pColour14_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour14.BackColor;
+        }
+
+        private void pColour16_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour16.BackColor;
+        }
+
+        private void pColour18_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour18.BackColor;
+        }
+
+        private void pColour20_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour20.BackColor;
+        }
+
+        private void pColour22_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour22.BackColor;
+        }
+
+        private void pColour24_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour24.BackColor;
+        }
+
+        private void pColour26_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour26.BackColor;
+        }
+
+        private void pColour28_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColour28.BackColor;
+        }
+
+        private void pColourSec_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Color = pColourSec.BackColor;
+            pColourSec.BringToFront();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tbToolTip.Text = ("This is a pencil.");
+        }
+
+        private void bRubberTool_Click(object sender, EventArgs e)
+        {
+            tbToolTip.Text = ("This is a eraser.");
+        }
+
+        private void bFillTool_Click(object sender, EventArgs e)
+        {
+            tbToolTip.Text = ("This is a fill bucket.");
+        }
+
+        private void bTextTool_Click(object sender, EventArgs e)
+        {
+            tbToolTip.Text = ("This is text.");
+        }
+
+        private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This is an MSpaint tribute, made by Madeleine Brown in Visual Studio Community using C# with graphics made in GIMP. Made in 2 Days.");
         }
     }
 }
