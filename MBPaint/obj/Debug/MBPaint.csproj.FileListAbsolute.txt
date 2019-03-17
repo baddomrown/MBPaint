@@ -8,3 +8,4 @@ C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPai
 C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.exe
 C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.pdb
 C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.Main.resources
+C:\Users\Madeleine\Documents\C# Projects\MBPaint\MBPaint\MBPaint\obj\Debug\MBPaint.helpForm.resources

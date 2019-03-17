@@ -18,6 +18,7 @@ namespace MBPaint
         bool moving = false;
         Pen pen;
 
+
         public Main()
         {
             InitializeComponent();
@@ -25,6 +26,13 @@ namespace MBPaint
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             pen = new Pen(Color.Black, 5);
             pen.StartCap = pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+
+            pSmallCircleBrush.BringToFront();
+            pMediumCircleBrush.BringToFront();
+            pLargeCircleBrush.BringToFront();
+            pSmallSquareBrush.BringToFront();
+            pMediumSquareBrush.BringToFront();
+            pLargeSquareBrush.BringToFront();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -52,10 +60,6 @@ namespace MBPaint
             moving = true;
             x = e.X;
             y = e.Y;
-
-            //pCanvas.Cursor = Cursors.SizeAll;
-
-
         }
 
         private void pCanvas_MouseMove(object sender, MouseEventArgs e)
@@ -66,6 +70,8 @@ namespace MBPaint
                 x = e.X;
                 y = e.Y;
             }
+
+            
         }
 
         private void pCanvas_MouseUp(object sender, MouseEventArgs e)
@@ -270,28 +276,122 @@ namespace MBPaint
         {
             tbToolTip.Text = ("This is a pencil.");
             pen.Color = pColourMain.BackColor;
-            pBrushSizeSmall.BringToFront();
+            pSmallCircleBrush.BringToFront();
+            pMediumCircleBrush.BringToFront();
+            pLargeCircleBrush.BringToFront();
+            pSmallSquareBrush.BringToFront();
+            pMediumSquareBrush.BringToFront();
+            pLargeSquareBrush.BringToFront();
         }
 
         private void bRubberTool_Click(object sender, EventArgs e)
         {
             tbToolTip.Text = ("This is a eraser.");
             pen.Color = pColourSec.BackColor;
+
+            pSmallCircleBrush.SendToBack();
+            pMediumCircleBrush.SendToBack();
+            pLargeCircleBrush.SendToBack();
+
+            pSmallSquareBrush.BringToFront();
+            pMediumSquareBrush.BringToFront();
+            pLargeSquareBrush.BringToFront();
         }
 
         private void bFillTool_Click(object sender, EventArgs e)
         {
             tbToolTip.Text = ("This is a fill bucket.");
+
+            pSmallCircleBrush.SendToBack();
+            pMediumCircleBrush.SendToBack();
+            pLargeCircleBrush.SendToBack();
+            pSmallSquareBrush.SendToBack();
+            pMediumSquareBrush.SendToBack();
+            pLargeSquareBrush.SendToBack();
+
         }
 
         private void bTextTool_Click(object sender, EventArgs e)
         {
             tbToolTip.Text = ("This is text.");
+
+            pSmallCircleBrush.SendToBack();
+            pMediumCircleBrush.SendToBack();
+            pLargeCircleBrush.SendToBack();
+            pSmallSquareBrush.SendToBack();
+            pMediumSquareBrush.SendToBack();
+            pLargeSquareBrush.SendToBack();
         }
 
         private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This is an MSpaint tribute, made by Madeleine Brown in Visual Studio Community using C# with graphics made in GIMP. Made in 2 Days.");
+        }
+
+        private void pLargeSquareBrush_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Width = 16;
+            pen.StartCap = pen.EndCap = System.Drawing.Drawing2D.LineCap.Square;
+        }
+
+        private void pMediumSquareBrush_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Width = 8;
+            pen.StartCap = pen.EndCap = System.Drawing.Drawing2D.LineCap.Square;
+        }
+
+        private void pSmallSquareBrush_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Width = 5;
+            pen.StartCap = pen.EndCap = System.Drawing.Drawing2D.LineCap.Square;
+        }
+
+        private void pLargeCircleBrush_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Width = 16;
+            pen.StartCap = pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+        }
+
+        private void pMediumCircleBrush_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Width = 8;
+            pen.StartCap = pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+        }
+
+        private void pSmallCircleBrush_MouseDown(object sender, MouseEventArgs e)
+        {
+            pen.Width = 5;
+            pen.StartCap = pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form helpForm = new helpForm();
+            helpForm.Show();
+        }
+
+        private void newPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            g.Clear(Color.White);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.CheckFileExists = false;
+            save.CheckPathExists = true;
+            save.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            save.InitialDirectory = @"C:\Users\";
+
+            DialogResult result = save.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Bitmap bmp = new Bitmap(pCanvas.Width, pCanvas.Height);
+
+                pCanvas.DrawToBitmap(bmp, new Rectangle(0, 0, pCanvas.Width, pCanvas.Height));
+
+                bmp.Save(save.FileName);
+            }
         }
     }
 }

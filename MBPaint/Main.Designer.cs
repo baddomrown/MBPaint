@@ -34,10 +34,8 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,15 +73,13 @@
             this.pColour18 = new System.Windows.Forms.Panel();
             this.pColourSec = new System.Windows.Forms.Panel();
             this.tbToolTip = new System.Windows.Forms.TextBox();
-            this.pBrushSizeSmall = new System.Windows.Forms.Panel();
+            this.pSmallSquareBrush = new System.Windows.Forms.Panel();
             this.pToolSelection = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pMediumSquareBrush = new System.Windows.Forms.Panel();
+            this.pLargeSquareBrush = new System.Windows.Forms.Panel();
+            this.pSmallCircleBrush = new System.Windows.Forms.Panel();
+            this.pMediumCircleBrush = new System.Windows.Forms.Panel();
             this.pLargeCircleBrush = new System.Windows.Forms.Panel();
-            this.bTextTool = new System.Windows.Forms.Button();
-            this.bFillTool = new System.Windows.Forms.Button();
             this.bRubberTool = new System.Windows.Forms.Button();
             this.bPencilTool = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -122,7 +118,6 @@
             this.newToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.openToolStripMenuItem,
-            this.optionsToolStripMenuItem,
             this.creditsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -131,47 +126,35 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newPageToolStripMenuItem,
-            this.clearPageToolStripMenuItem});
+            this.newPageToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // newPageToolStripMenuItem
             // 
             this.newPageToolStripMenuItem.Name = "newPageToolStripMenuItem";
-            this.newPageToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.newPageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newPageToolStripMenuItem.Text = "New Page";
-            // 
-            // clearPageToolStripMenuItem
-            // 
-            this.clearPageToolStripMenuItem.Name = "clearPageToolStripMenuItem";
-            this.clearPageToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.clearPageToolStripMenuItem.Text = "Clear Page";
-            this.clearPageToolStripMenuItem.Click += new System.EventHandler(this.clearPageToolStripMenuItem_Click);
+            this.newPageToolStripMenuItem.Click += new System.EventHandler(this.newPageToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.optionsToolStripMenuItem.Text = "Options";
             // 
             // creditsToolStripMenuItem
             // 
             this.creditsToolStripMenuItem.Name = "creditsToolStripMenuItem";
-            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.creditsToolStripMenuItem.Text = "Credits";
             this.creditsToolStripMenuItem.Click += new System.EventHandler(this.creditsToolStripMenuItem_Click);
             // 
@@ -187,6 +170,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -513,86 +497,71 @@
             this.tbToolTip.TabIndex = 16;
             this.tbToolTip.Text = "Help can be found at the top.";
             // 
-            // pBrushSizeSmall
+            // pSmallSquareBrush
             // 
-            this.pBrushSizeSmall.BackColor = System.Drawing.Color.Black;
-            this.pBrushSizeSmall.Location = new System.Drawing.Point(46, 185);
-            this.pBrushSizeSmall.Name = "pBrushSizeSmall";
-            this.pBrushSizeSmall.Size = new System.Drawing.Size(4, 4);
-            this.pBrushSizeSmall.TabIndex = 0;
+            this.pSmallSquareBrush.BackColor = System.Drawing.Color.Black;
+            this.pSmallSquareBrush.Location = new System.Drawing.Point(46, 192);
+            this.pSmallSquareBrush.Name = "pSmallSquareBrush";
+            this.pSmallSquareBrush.Size = new System.Drawing.Size(4, 4);
+            this.pSmallSquareBrush.TabIndex = 0;
+            this.pSmallSquareBrush.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pSmallSquareBrush_MouseDown);
             // 
             // pToolSelection
             // 
             this.pToolSelection.BackColor = System.Drawing.Color.Silver;
             this.pToolSelection.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pToolSelection.Location = new System.Drawing.Point(8, 158);
+            this.pToolSelection.Location = new System.Drawing.Point(0, 171);
             this.pToolSelection.Name = "pToolSelection";
-            this.pToolSelection.Size = new System.Drawing.Size(70, 107);
+            this.pToolSelection.Size = new System.Drawing.Size(70, 68);
             this.pToolSelection.TabIndex = 15;
             // 
-            // panel1
+            // pMediumSquareBrush
             // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(32, 185);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(8, 8);
-            this.panel1.TabIndex = 17;
+            this.pMediumSquareBrush.BackColor = System.Drawing.Color.Black;
+            this.pMediumSquareBrush.Location = new System.Drawing.Point(32, 190);
+            this.pMediumSquareBrush.Name = "pMediumSquareBrush";
+            this.pMediumSquareBrush.Size = new System.Drawing.Size(8, 8);
+            this.pMediumSquareBrush.TabIndex = 17;
+            this.pMediumSquareBrush.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pMediumSquareBrush_MouseDown);
             // 
-            // panel2
+            // pLargeSquareBrush
             // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(10, 185);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(16, 16);
-            this.panel2.TabIndex = 18;
+            this.pLargeSquareBrush.BackColor = System.Drawing.Color.Black;
+            this.pLargeSquareBrush.Location = new System.Drawing.Point(10, 185);
+            this.pLargeSquareBrush.Name = "pLargeSquareBrush";
+            this.pLargeSquareBrush.Size = new System.Drawing.Size(16, 16);
+            this.pLargeSquareBrush.TabIndex = 18;
+            this.pLargeSquareBrush.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pLargeSquareBrush_MouseDown);
             // 
-            // panel5
+            // pSmallCircleBrush
             // 
-            this.panel5.BackgroundImage = global::MBPaint.Properties.Resources.smallcirclebrush;
-            this.panel5.Location = new System.Drawing.Point(46, 207);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(16, 16);
-            this.panel5.TabIndex = 21;
+            this.pSmallCircleBrush.BackColor = System.Drawing.Color.Silver;
+            this.pSmallCircleBrush.BackgroundImage = global::MBPaint.Properties.Resources.smallcirclebrush;
+            this.pSmallCircleBrush.Location = new System.Drawing.Point(46, 207);
+            this.pSmallCircleBrush.Name = "pSmallCircleBrush";
+            this.pSmallCircleBrush.Size = new System.Drawing.Size(16, 16);
+            this.pSmallCircleBrush.TabIndex = 21;
+            this.pSmallCircleBrush.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pSmallCircleBrush_MouseDown);
             // 
-            // panel4
+            // pMediumCircleBrush
             // 
-            this.panel4.BackgroundImage = global::MBPaint.Properties.Resources.mediumcirclebrush;
-            this.panel4.Location = new System.Drawing.Point(28, 207);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(16, 16);
-            this.panel4.TabIndex = 20;
+            this.pMediumCircleBrush.BackColor = System.Drawing.Color.Silver;
+            this.pMediumCircleBrush.BackgroundImage = global::MBPaint.Properties.Resources.mediumcirclebrush;
+            this.pMediumCircleBrush.Location = new System.Drawing.Point(28, 207);
+            this.pMediumCircleBrush.Name = "pMediumCircleBrush";
+            this.pMediumCircleBrush.Size = new System.Drawing.Size(16, 16);
+            this.pMediumCircleBrush.TabIndex = 20;
+            this.pMediumCircleBrush.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pMediumCircleBrush_MouseDown);
             // 
             // pLargeCircleBrush
             // 
+            this.pLargeCircleBrush.BackColor = System.Drawing.Color.Silver;
             this.pLargeCircleBrush.BackgroundImage = global::MBPaint.Properties.Resources.largecirclebrush;
             this.pLargeCircleBrush.Location = new System.Drawing.Point(10, 207);
             this.pLargeCircleBrush.Name = "pLargeCircleBrush";
             this.pLargeCircleBrush.Size = new System.Drawing.Size(16, 16);
             this.pLargeCircleBrush.TabIndex = 19;
-            // 
-            // bTextTool
-            // 
-            this.bTextTool.BackColor = System.Drawing.Color.Silver;
-            this.bTextTool.BackgroundImage = global::MBPaint.Properties.Resources.tex1;
-            this.bTextTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bTextTool.Location = new System.Drawing.Point(37, 127);
-            this.bTextTool.Name = "bTextTool";
-            this.bTextTool.Size = new System.Drawing.Size(25, 25);
-            this.bTextTool.TabIndex = 14;
-            this.bTextTool.UseVisualStyleBackColor = false;
-            this.bTextTool.Click += new System.EventHandler(this.bTextTool_Click);
-            // 
-            // bFillTool
-            // 
-            this.bFillTool.BackColor = System.Drawing.Color.Silver;
-            this.bFillTool.BackgroundImage = global::MBPaint.Properties.Resources.Bucket1;
-            this.bFillTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bFillTool.Location = new System.Drawing.Point(10, 127);
-            this.bFillTool.Name = "bFillTool";
-            this.bFillTool.Size = new System.Drawing.Size(25, 25);
-            this.bFillTool.TabIndex = 13;
-            this.bFillTool.UseVisualStyleBackColor = false;
-            this.bFillTool.Click += new System.EventHandler(this.bFillTool_Click);
+            this.pLargeCircleBrush.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pLargeCircleBrush_MouseDown);
             // 
             // bRubberTool
             // 
@@ -622,17 +591,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(641, 447);
             this.Controls.Add(this.pToolSelection);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.pSmallCircleBrush);
+            this.Controls.Add(this.pMediumCircleBrush);
             this.Controls.Add(this.pLargeCircleBrush);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pBrushSizeSmall);
+            this.Controls.Add(this.pLargeSquareBrush);
+            this.Controls.Add(this.pMediumSquareBrush);
+            this.Controls.Add(this.pSmallSquareBrush);
             this.Controls.Add(this.tbToolTip);
-            this.Controls.Add(this.bTextTool);
-            this.Controls.Add(this.bFillTool);
             this.Controls.Add(this.bRubberTool);
             this.Controls.Add(this.bPencilTool);
             this.Controls.Add(this.pColourMain);
@@ -667,6 +635,7 @@
             this.Controls.Add(this.pColour6);
             this.Controls.Add(this.pCanvas);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
@@ -697,10 +666,8 @@
         private System.Windows.Forms.Panel pColourMain;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearPageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem creditsToolStripMenuItem;
         private System.Windows.Forms.Panel pColour9;
         private System.Windows.Forms.Panel pColour15;
@@ -728,16 +695,14 @@
         private System.Windows.Forms.Panel pColourSec;
         private System.Windows.Forms.Button bPencilTool;
         private System.Windows.Forms.Button bRubberTool;
-        private System.Windows.Forms.Button bFillTool;
-        private System.Windows.Forms.Button bTextTool;
         private System.Windows.Forms.TextBox tbToolTip;
-        private System.Windows.Forms.Panel pBrushSizeSmall;
+        private System.Windows.Forms.Panel pSmallSquareBrush;
         private System.Windows.Forms.Panel pToolSelection;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pMediumSquareBrush;
+        private System.Windows.Forms.Panel pLargeSquareBrush;
         private System.Windows.Forms.Panel pLargeCircleBrush;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel pMediumCircleBrush;
+        private System.Windows.Forms.Panel pSmallCircleBrush;
     }
 }
 
